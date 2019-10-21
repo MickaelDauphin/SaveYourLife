@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanOpen: 0
-  maxOpen: 80
+  maxOpen: -80
 --- !u!64 &798919196
 MeshCollider:
   m_ObjectHideFlags: 0
