@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyedVersion: {fileID: 6818273807348140785, guid: 6f27901958558584ea4c530ba318e5ac,
     type: 3}
+  magnitude: 2
 --- !u!1001 &8358587769849045073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,6 +56,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden_Crate
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 78580a86e6514e04a8b54da7b73afdc0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b94f40a03da4edc419c1d28dae8339ee, type: 2}
     - target: {fileID: -4216859302048453862, guid: 78580a86e6514e04a8b54da7b73afdc0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -110,11 +116,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 78580a86e6514e04a8b54da7b73afdc0,
+    - target: {fileID: -4216859302048453862, guid: 78580a86e6514e04a8b54da7b73afdc0,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b94f40a03da4edc419c1d28dae8339ee, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 78580a86e6514e04a8b54da7b73afdc0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 78580a86e6514e04a8b54da7b73afdc0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78580a86e6514e04a8b54da7b73afdc0, type: 3}
 --- !u!1 &62564806112688472 stripped
