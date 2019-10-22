@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
+    public GameObject player;
+
     public GameObject destroyedVersion;
     public int magnitude = 2;
     public bool clickDestroy = false;
@@ -18,7 +20,7 @@ public class Destructible : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (clickDestroy)
+        if (clickDestroy && player.GetComponent<Inventory>().haveStick)
         {
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(gameObject);
