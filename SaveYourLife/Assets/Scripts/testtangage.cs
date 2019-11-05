@@ -9,9 +9,10 @@ public class testtangage : MonoBehaviour
     public float speed =2.0f;
     private bool b;
 
-
+    public Transform init;
     public Transform from;
     public Transform to;
+    
 
     private float timeCount = 0.0f;
 
@@ -20,6 +21,8 @@ public class testtangage : MonoBehaviour
     void Start()
     {
         b = true;
+        
+        
     }
 
 
