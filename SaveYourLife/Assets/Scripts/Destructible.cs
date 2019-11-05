@@ -11,11 +11,10 @@ public class Destructible : MonoBehaviour
     public bool clickDestroy = false;
     private void OnMouseDown()
     {
-        if (clickDestroy)
-            if (clickDestroy && player.GetComponent<Inventory>().haveStick)
-            {
-                Instantiate(destroyedVersion, transform.position, transform.rotation);
-                Destroy(gameObject);
-            }
+      if (clickDestroy && player.GetComponent<Inventory>().haveStick)
+      {
+            Instantiate(destroyedVersion, transform.position, transform.rotation);
+            Destroy(gameObject);
+      }
     }
 }
