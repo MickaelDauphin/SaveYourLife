@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
+    public GameObject player;
+
     public GameObject destroyedVersion;
     public int magnitude = 2;
-    private void OnCollisionEnter(Collision collision)
+    public bool clickDestroy = false;
+    private void OnMouseDown()
     {
-        if(collision.relativeVelocity.magnitude > magnitude)
-        {
-            Instantiate(destroyedVersion, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+        if (clickDestroy)
+            if (clickDestroy && player.GetComponent<Inventory>().haveStick)
+            {
+                Instantiate(destroyedVersion, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
     }
 }
