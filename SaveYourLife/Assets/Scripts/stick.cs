@@ -19,5 +19,6 @@ public class stick : INTERACTION_CLICK_AND_PICK
             player.GetComponent<Inventory>().SetStick();
             Destroy(this.gameObject);
         }
+        base.Declencher_Etape_Suivante_Du_Scenario();
     }
 }
