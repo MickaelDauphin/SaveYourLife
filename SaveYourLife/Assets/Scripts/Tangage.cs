@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testtangage : MonoBehaviour
+public class Tangage : MonoBehaviour
     {
 
     public GameObject cube1;
