@@ -23,7 +23,6 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("ROTATION : " + transform.localEulerAngles.y);
         if (CanOpen && Mathf.Abs(ConvertAngle(transform.localEulerAngles.y)) < Mathf.Abs(maxOpen) && Mathf.Abs(maxOpen) < 180)
         {
             transform.Rotate(new Vector3(0, 100 * coef, 0) * Time.deltaTime);

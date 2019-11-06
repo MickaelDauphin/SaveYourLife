@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public bool haveStick = false;
+    private bool bstick = false;
     private int score = 0;
     private int stars = 0;
     public GameObject Stick;
@@ -16,7 +16,8 @@ public class Inventory : MonoBehaviour
     }
     private void Update()
     {
-        if (haveStick)
+        print("HAVE STICK: " + bstick);
+        if (bstick)
             Stick.gameObject.SetActive(true);
     }
     public int returnScore() { return score; }
@@ -25,4 +26,6 @@ public class Inventory : MonoBehaviour
     public int nbStars() { return stars; }
     public void SetKey() { Key = true; }
     public bool HaveKey() { return Key; }
+    public void SetStick() { bstick = true; }
+    public bool HaveStick() { return bstick; }
 }

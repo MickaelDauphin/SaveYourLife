@@ -13,9 +13,10 @@ public class stick : INTERACTION_CLICK_AND_PICK
 
     override public void Object_Picked()
     {
-        if (!player.GetComponent<Inventory>().haveStick)
+        print(player.GetComponent<Inventory>().HaveStick());
+        if (!player.GetComponent<Inventory>().HaveStick())
         {
-            player.GetComponent<Inventory>().haveStick = true;
+            player.GetComponent<Inventory>().SetStick();
             Destroy(this.gameObject);
         }
     }
