@@ -34,6 +34,7 @@ public class Destructible : INTERACTION_CLICK_AND_PICK
             player.GetComponent<Inventory>().SetKey();
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(this.gameObject);
+            base.Declencher_Etape_Suivante_Du_Scenario();
         }
     }
 }

@@ -32,6 +32,7 @@ public class Astuces : MonoBehaviour
             }
             if (_MGR_ScenarioManager.Instance.GetComponent<_MGR_ScenarioManager>().p_num_etapeEnCours == etapeActuelle)
             {
+                print("ETAPE ACTUELLE: " + etapeActuelle);
                 Astuce_UI.enabled = false;
                 Astuce_Time = listTimer[etapeActuelle];
                 etapeActuelle++;
