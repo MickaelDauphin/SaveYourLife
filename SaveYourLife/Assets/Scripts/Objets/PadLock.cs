@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PadLock : INTERACTION_CLICK_AND_PICK
 {
     // Start is called before the first frame update
     public GameObject player;
-    public GameObject locker;
-    public GameObject m_Door1;
-    public GameObject m_Door2;
-    public bool DoubleDoor;
+    public GameObject m_Door;
+    public Text Info;
 
     public override void Start()
     {
@@ -20,13 +19,8 @@ public class PadLock : INTERACTION_CLICK_AND_PICK
     {
         if (player.GetComponent<Inventory>().HaveKey())
         {
-            m_Door1.gameObject.GetComponent<Door>().CanOpen = true;
-            if (DoubleDoor)
-            {
-                m_Door2.gameObject.GetComponent<Door>().CanOpen = true;
-            }
-            Destroy(locker);
-            base.Declencher_Etape_Suivante_Du_Scenario();
+            Info.enabled = false;
+            m_Door.gameObject.GetComponent<Door>().CanOpen = true;
             Destroy(this.gameObject);
         }
     }
