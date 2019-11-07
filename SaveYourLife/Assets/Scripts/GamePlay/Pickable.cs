@@ -23,7 +23,6 @@ public class Pickable : MonoBehaviour
         {
             var selectionRender = _selection.GetComponent<Renderer>();
             selectionRender.material = defaultMaterial;
-            print("Mon Material de base: " + defaultMaterial);
             _selection = null;
         }
 
