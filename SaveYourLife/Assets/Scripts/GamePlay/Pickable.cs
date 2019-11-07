@@ -7,7 +7,7 @@ public class Pickable : MonoBehaviour
     public Camera cam;
     public string selectableTag;
     public Material highlightMaterial;
-    public Material defaultMaterial;
+    Material defaultMaterial;
     private Transform _selection;
 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class Pickable : MonoBehaviour
         {
             var selectionRender = _selection.GetComponent<Renderer>();
             selectionRender.material = defaultMaterial;
+            print("Mon Material de base: " + defaultMaterial);
             _selection = null;
         }
 
@@ -40,6 +41,10 @@ public class Pickable : MonoBehaviour
             if (selection.CompareTag(selectableTag))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
+                if (defaultMaterial != highlightMaterial)
+                {
+                    defaultMaterial = selectionRenderer.material;
+                }
                 if (selectionRenderer != null)
                 {
                     selectionRenderer.material = highlightMaterial;

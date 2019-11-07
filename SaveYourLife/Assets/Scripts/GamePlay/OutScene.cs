@@ -14,7 +14,5 @@ public class OutScene : MonoBehaviour
     {
         if (other.tag == "Player")
             SceneManager.LoadScene("Scene_Menu");
-        else if (!(other.tag == "Target"))
-            Destroy(other.gameObject);
     }
 }
