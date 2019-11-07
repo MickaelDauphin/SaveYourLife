@@ -13,7 +13,6 @@ public class Echelle : MonoBehaviour
     {
         if (Monte)
         {
-            print("JE MONTE LECHELLE!!");
             Player.transform.Translate(Vector3.up * vitesse * Time.deltaTime);
         }
     }

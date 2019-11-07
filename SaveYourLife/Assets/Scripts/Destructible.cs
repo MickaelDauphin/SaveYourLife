@@ -28,14 +28,17 @@ public class Destructible : INTERACTION_CLICK_AND_PICK
 
     override public void Object_Picked()
     {
-        if (player.GetComponent<Inventory>().HaveStick() && BoxHaveKey)
+        if (player.GetComponent<Inventory>().HaveStick())
         {
-            Info.text = "Vous avez trouvé la Clef !!";
-            Info.enabled = true;
-            player.GetComponent<Inventory>().SetKey();
-            base.Declencher_Etape_Suivante_Du_Scenario();
+            if (BoxHaveKey)
+            {
+                Info.text = "Vous avez trouvé la Clef !!";
+                Info.enabled = true;
+                player.GetComponent<Inventory>().SetKey();
+                base.Declencher_Etape_Suivante_Du_Scenario();
+            }
+            Instantiate(destroyedVersion, transform.position, transform.rotation);
+            Destroy(this.gameObject);
         }
-        Instantiate(destroyedVersion, transform.position, transform.rotation);
-        Destroy(this.gameObject);
     }
 }

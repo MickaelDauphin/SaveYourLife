@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Fire : INTERACTION_CLICK_AND_PICK
 {
@@ -12,11 +13,12 @@ public class Fire : INTERACTION_CLICK_AND_PICK
     }
     private void OnMouseDown()
     {
-        if (player.GetComponent<Inventory>().HaveTorch() && player.GetComponent<Inventory>().StrawTop)
+        if (player.GetComponent<Inventory>().HaveTorch() && player.GetComponent<Inventory>().HaveStrawTop())
         {
             particle.Play();
             player.GetComponent<Inventory>().Torch.SetActive(false);
-            base.Declencher_Etape_Suivante_Du_Scenario();
+            SceneManager.LoadScene("Scene_YouWin");
+            //base.Declencher_Etape_Suivante_Du_Scenario();
         }
     }
 }

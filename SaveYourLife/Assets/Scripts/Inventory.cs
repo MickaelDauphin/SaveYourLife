@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour
     private bool isDo = false;
     private bool isDo2 = false;
     private bool isDo3 = false;
-    public bool StrawTop = false;
+    private bool StrawTop = false;
 
     //Faire un get et set pour le havestick et quand on set afficher en meme temps sur la caméra
     private void Start()
@@ -88,4 +88,6 @@ public class Inventory : MonoBehaviour
     public void SetStraw() { bstraw = true; }
     public bool HaveTorch() { return btorch; }
     public void SetTorch() { btorch = true; }
+    public bool HaveStrawTop() { return StrawTop; }
+    public void SetStrawTop() { StrawTop = true; }
 }

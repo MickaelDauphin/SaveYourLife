@@ -17,7 +17,7 @@ public class StrawTop : INTERACTION_CLICK_AND_PICK
         {
             Object.enabled = true;
             player.GetComponent<Inventory>().Straw.SetActive(false);
-            player.GetComponent<Inventory>().StrawTop = true;
+            player.GetComponent<Inventory>().SetStrawTop();
             //base.Declencher_Etape_Suivante_Du_Scenario();
         }
     }
