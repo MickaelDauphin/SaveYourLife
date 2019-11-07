@@ -16,6 +16,8 @@ public class WoodDoor : INTERACTION_CLICK_AND_PICK
     public override void Start()
     {
         CanOpen = false;
+        if (Solution == 0)  
+            Solution = Random.Range(1, 3) * 1000 + Random.Range(1, 3) * 100 + Random.Range(1, 3) * 10 + Random.Range(1, 3);
     }
 
     public override void Update()
