@@ -10,6 +10,7 @@ public class Destructible : INTERACTION_CLICK_AND_PICK
     public Text Info;
     public GameObject destroyedVersion;
     public int magnitude = 2;
+    public bool BoxHaveKey = false;
 
     public override void Start()
     {
@@ -27,14 +28,14 @@ public class Destructible : INTERACTION_CLICK_AND_PICK
 
     override public void Object_Picked()
     {
-        if (player.GetComponent<Inventory>().HaveStick())
+        if (player.GetComponent<Inventory>().HaveStick() && BoxHaveKey)
         {
             Info.text = "Vous avez trouvé la Clef !!";
             Info.enabled = true;
             player.GetComponent<Inventory>().SetKey();
-            Instantiate(destroyedVersion, transform.position, transform.rotation);
-            Destroy(this.gameObject);
             base.Declencher_Etape_Suivante_Du_Scenario();
         }
+        Instantiate(destroyedVersion, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 }
