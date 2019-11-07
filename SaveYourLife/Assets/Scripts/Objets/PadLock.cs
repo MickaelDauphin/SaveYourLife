@@ -21,8 +21,8 @@ public class PadLock : INTERACTION_CLICK_AND_PICK
         {
             Info.enabled = false;
             m_Door.gameObject.GetComponent<Door>().CanOpen = true;
-            Destroy(this.gameObject);
             base.Declencher_Etape_Suivante_Du_Scenario();
+            Destroy(this.gameObject);
         }
     }
 }

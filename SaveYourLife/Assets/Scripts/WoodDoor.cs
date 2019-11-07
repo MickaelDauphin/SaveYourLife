@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodDoor : MonoBehaviour
+public class WoodDoor : INTERACTION_CLICK_AND_PICK
 {
     // Start is called before the first frame update
     public bool CanOpen;
@@ -11,26 +11,42 @@ public class WoodDoor : MonoBehaviour
     public int maxOpen;
     private bool isDo = false;
     public GameObject L1, L2, L3, L4;
-    void Start()
+    public int Solution;
+    private int Total;
+    public override void Start()
     {
         CanOpen = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        if (L1.GetComponent<Levier>().ValeurL1 + L2.GetComponent<Levier>().ValeurL2 + L3.GetComponent<Levier>().ValeurL3 + L4.GetComponent<Levier>().ValeurL4 == 2321)
-            CanOpen = true;
-        if (CanOpen && transform.localEulerAngles.y < maxOpen && maxOpen > 0 && maxOpen < 180)
+        Total = L1.GetComponent<Levier>().ValeurL1 + L2.GetComponent<Levier>().ValeurL2 + L3.GetComponent<Levier>().ValeurL3 + L4.GetComponent<Levier>().ValeurL4;
+        print("Valeur solution: " + Total);
+        if (CanOpen)
         {
-            transform.Rotate(new Vector3(0, 100, 0) * Time.deltaTime);
-        }
-        if (CanOpen && maxOpen > 180)
-        {
-            if (transform.localEulerAngles.y <= 45 && transform.localEulerAngles.y > 0 || transform.localEulerAngles.y > maxOpen)
+            if (maxOpen < 180 && maxOpen > 0)
             {
-                transform.Rotate(new Vector3(0, -100, 0) * Time.deltaTime);
+                if (transform.localEulerAngles.y < maxOpen)
+                    transform.Rotate(new Vector3(0, 100, 0) * Time.deltaTime);
+                else
+                    base.Declencher_Etape_Suivante_Du_Scenario();
             }
+            if (maxOpen >= 180)
+            {
+                if (transform.localEulerAngles.y <= 45 && transform.localEulerAngles.y > 0 || transform.localEulerAngles.y > maxOpen)
+                    transform.Rotate(new Vector3(0, -100, 0) * Time.deltaTime);
+                else
+                    base.Declencher_Etape_Suivante_Du_Scenario();
+            }
+        }
+    }
+
+    public override void Object_Picked()
+    {
+        if (Total == Solution)
+        {
+            this.CanOpen = true;
+            //base.Declencher_Etape_Suivante_Du_Scenario();
         }
     }
 }
