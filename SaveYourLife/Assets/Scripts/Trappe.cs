@@ -15,6 +15,7 @@ public class Trappe : INTERACTION_CLICK_AND_PICK
     {
         if (player.GetComponent<Inventory>().HaveAxe())
         {
+            player.GetComponent<Inventory>().Axe.SetActive(false);
             Instantiate(destroyedVersion, transform.position, transform.rotation);
             Destroy(this.gameObject);
             base.Declencher_Etape_Suivante_Du_Scenario();
