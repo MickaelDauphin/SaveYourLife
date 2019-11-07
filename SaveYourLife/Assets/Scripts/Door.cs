@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     public bool CanOpen;
     float Rotation;
+    public AudioSource sound;
     int y = 0;
     public int maxOpen;
     private bool isDo = false;
@@ -26,6 +27,11 @@ public class Door : MonoBehaviour
         if (CanOpen && Mathf.Abs(ConvertAngle(transform.localEulerAngles.y)) < Mathf.Abs(maxOpen) && Mathf.Abs(maxOpen) < 180)
         {
             transform.Rotate(new Vector3(0, 100 * coef, 0) * Time.deltaTime);
+            if (!isDo)
+            {
+                sound.Play();
+                isDo = true;
+            }
         }
     }
 
