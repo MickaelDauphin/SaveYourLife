@@ -14,6 +14,10 @@ public class LastStep : INTERACTION_CLICK_AND_PICK
     private bool bFire;
     public float timer = 10;
     private bool youwin = false;
+    public override void Start()
+    {
+        Help.text = descriptionAction;
+    }
     public override void Object_Picked()
     {
         if (player.GetComponent<Inventory>().HaveStraw())
