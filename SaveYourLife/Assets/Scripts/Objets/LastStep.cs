@@ -12,7 +12,7 @@ public class LastStep : INTERACTION_CLICK_AND_PICK
     public Camera CameraPlayer;
     public Camera CameraEnd;
     private bool bFire;
-    public float timer = 10;
+    public float timer = 8;
     private bool youwin = false;
     public override void Start()
     {
@@ -41,7 +41,7 @@ public class LastStep : INTERACTION_CLICK_AND_PICK
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                timer = 10;
+                timer = 8;
                 youwin = false;
                 SceneManager.LoadScene("Scene_YouWin");
             }
