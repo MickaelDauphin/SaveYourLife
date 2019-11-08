@@ -57,13 +57,13 @@ public class Inventory : MonoBehaviour
             SetAxe();
             isDo = true;
         }
-        if (/*baxe && */bstraw && !isDo2)
+        if (baxe && bstraw && !isDo2)
         {
             Straw.gameObject.SetActive(true);
             isDo2 = true;
         }
             
-        if (/*baxe && */btorch && !isDo3)
+        if (baxe && btorch && !isDo3)
         {
             Torch.gameObject.SetActive(true);
             isDo3 = true;
