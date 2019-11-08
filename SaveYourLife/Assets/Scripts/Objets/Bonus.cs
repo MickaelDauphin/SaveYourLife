@@ -4,23 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Bonus : MonoBehaviour
 {
-    public Text Score_UIText;
     private bool isDo = false;
+    public int scoreToAdd;
     public GameObject Player;
-
-    void Update()
-    {
-        Score_UIText.text = "score : " + Player.GetComponent<Inventory>().returnScore();
-    }
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && !isDo)
         {
             isDo = true;
-            other.GetComponent<Inventory>().addScore(100);
+            other.GetComponent<Inventory>().addScore(scoreToAdd);
             Destroy(this.gameObject);
         }
     }
 
+    private void OnMouseDown()
+    {
+        isDo = true;
+        Player.GetComponent<Inventory>().addScore(scoreToAdd);
+        Destroy(this.gameObject);
+    }
 }

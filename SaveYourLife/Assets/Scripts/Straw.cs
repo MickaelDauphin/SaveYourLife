@@ -16,7 +16,7 @@ public class Straw : INTERACTION_CLICK_AND_PICK
         print(player.GetComponent<Inventory>().HaveStraw());
         if (!player.GetComponent<Inventory>().HaveStraw())
         {
-            player.GetComponent<Inventory>().SetStraw();
+            player.GetComponent<Inventory>().SetStraw(true);
             Destroy(this.gameObject);
         }
     }

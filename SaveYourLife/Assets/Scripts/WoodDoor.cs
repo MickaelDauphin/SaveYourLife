@@ -18,13 +18,14 @@ public class WoodDoor : INTERACTION_CLICK_AND_PICK
         Help.text = descriptionAction;
         CanOpen = false;
         if (Solution == 0)  
-            Solution = Random.Range(1, 3) * 1000 + Random.Range(1, 3) * 100 + Random.Range(1, 3) * 10 + Random.Range(1, 3);
+            Solution = Random.Range(1, 4) * 1000 + Random.Range(1, 4) * 100 + Random.Range(1, 4) * 10 + Random.Range(1, 4);
     }
 
     public override void Update()
     {
         Total = L1.GetComponent<Levier>().ValeurL1 + L2.GetComponent<Levier>().ValeurL2 + L3.GetComponent<Levier>().ValeurL3 + L4.GetComponent<Levier>().ValeurL4;
-        print("Valeur solution: " + Total);
+        print("Valeur Solution: " + Solution);
+        print("Valeur Levier: " + Total);
         if (CanOpen)
         {
             if (maxOpen < 180 && maxOpen > 0)

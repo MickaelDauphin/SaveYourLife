@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public Text Score_UIText;
     private bool bstick = false;
     private bool brope = false;
     private bool bstone = false;
@@ -42,6 +44,7 @@ public class Inventory : MonoBehaviour
         print("HAVE AXE: " + baxe);
         print("HAVE STRAW: " + bstraw);
         print("HAVE TORCH: " + btorch);
+        Score_UIText.text = "Money : " + score;
         if (bstick && !isDo)
             Stick.gameObject.SetActive(true);
         if (brope && !isDo)
@@ -62,6 +65,11 @@ public class Inventory : MonoBehaviour
             Straw.gameObject.SetActive(true);
             isDo2 = true;
         }
+        if (!bstraw && isDo2)
+        {
+            isDo2 = false;
+            Straw.gameObject.SetActive(false);
+        }
             
         if (btorch && !isDo3 && canTakeTorch)
         {
@@ -70,7 +78,6 @@ public class Inventory : MonoBehaviour
         }
 
     }
-    public int returnScore() { return score; }
     public void addScore(int addscore) { score += addscore; }
     public void addStar() { stars++; }
     public int nbStars() { return stars; }
@@ -85,7 +92,7 @@ public class Inventory : MonoBehaviour
     public bool HaveAxe() { return baxe; }
     public void SetAxe() { baxe = true; }
     public bool HaveStraw() { return bstraw; }
-    public void SetStraw() { bstraw = true; }
+    public void SetStraw(bool have) { bstraw = have; }
     public bool HaveTorch() { return btorch; }
     public void SetTorch() { btorch = true; }
     public bool HaveStrawTop() { return StrawTop; }
