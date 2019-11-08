@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
     private bool isDo2 = false;
     private bool isDo3 = false;
     private bool StrawTop = false;
-
+    private bool canTakeTorch = false;
     //Faire un get et set pour le havestick et quand on set afficher en meme temps sur la caméra
     private void Start()
     {
@@ -57,13 +57,13 @@ public class Inventory : MonoBehaviour
             SetAxe();
             isDo = true;
         }
-        if (baxe && bstraw && !isDo2)
+        if (bstraw && !isDo2)
         {
             Straw.gameObject.SetActive(true);
             isDo2 = true;
         }
             
-        if (baxe && btorch && !isDo3)
+        if (btorch && !isDo3 && canTakeTorch)
         {
             Torch.gameObject.SetActive(true);
             isDo3 = true;
@@ -90,4 +90,7 @@ public class Inventory : MonoBehaviour
     public void SetTorch() { btorch = true; }
     public bool HaveStrawTop() { return StrawTop; }
     public void SetStrawTop() { StrawTop = true; }
+
+    public bool HaveCanTakeTorch() { return canTakeTorch; }
+    public void SetCanTakeTorch() { canTakeTorch = true; }
 }
