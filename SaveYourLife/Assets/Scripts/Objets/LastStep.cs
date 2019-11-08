@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LastStep : INTERACTION_CLICK_AND_PICK
 {
@@ -11,6 +12,8 @@ public class LastStep : INTERACTION_CLICK_AND_PICK
     public Camera CameraPlayer;
     public Camera CameraEnd;
     private bool bFire;
+    public float timer = 10;
+    private bool youwin = false;
     public override void Object_Picked()
     {
         if (player.GetComponent<Inventory>().HaveStraw())
@@ -22,11 +25,22 @@ public class LastStep : INTERACTION_CLICK_AND_PICK
         else if(bFire && player.GetComponent<Inventory>().HaveTorch())
         {
             Fire.gameObject.SetActive(true);
-            CameraPlayer.gameObject.SetActive(false);
+            //CameraPlayer.gameObject.SetActive(false);
             CameraEnd.gameObject.SetActive(true);
-            if(CameraEnd.GetComponent<Animator>().playbackTime)
-
-            //base.Declencher_Etape_Suivante_Du_Scenario();
+            youwin = true;
+        }
+    }
+    public override void Update()
+    {
+        if (youwin)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer = 10;
+                youwin = false;
+                SceneManager.LoadScene("Scene_YouWin");
+            }
         }
     }
 }
