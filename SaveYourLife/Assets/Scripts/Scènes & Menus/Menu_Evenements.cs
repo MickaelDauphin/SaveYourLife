@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Menu_Evenements : MonoBehaviour {
-
     private void Update()
     {
         if (Cursor.visible == false)

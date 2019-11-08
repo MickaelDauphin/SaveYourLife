@@ -10,7 +10,7 @@ public class _MGR_ScenarioManager : MonoBehaviour
 
     public   uint   nbEtapes { get; private set; }
 
-    public int   p_num_etapeEnCours; //private
+    public int   p_num_etapeEnCours;
     private Scenario_Etape p_etapeEnCours; 
     private GameObject ojet_etape_en_cours;
     // private Scenario_Etape[]            p_etapes;                                    

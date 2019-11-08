@@ -7,18 +7,23 @@ public class Fire : INTERACTION_CLICK_AND_PICK
 {
     public GameObject player;
     public ParticleSystem particle;
-    private void Start()
+
+    override public void Start()
     {
-        particle.Stop();
+        Help.text = descriptionAction;
     }
-    private void OnMouseDown()
+
+    override public void Object_Picked()
     {
+        print("MON PLAYER INFO 1/ HaveTorch: " + player.GetComponent<Inventory>().HaveTorch() + " haveStrawTop " + player.GetComponent<Inventory>().HaveStrawTop());
         if (player.GetComponent<Inventory>().HaveTorch() && player.GetComponent<Inventory>().HaveStrawTop())
         {
-            particle.Play();
+            //particle.Play();
+            particle.gameObject.SetActive(true);
             player.GetComponent<Inventory>().Torch.SetActive(false);
-            SceneManager.LoadScene("Scene_YouWin");
+            //SceneManager.LoadScene("Scene_YouWin");
             //base.Declencher_Etape_Suivante_Du_Scenario();
+            print("MON PLAYER INFO 2/ HaveTorch: " + player.GetComponent<Inventory>().HaveTorch() + " haveStrawTop " + player.GetComponent<Inventory>().HaveStrawTop());
         }
     }
 }
